@@ -17,7 +17,7 @@ if not isinstance(election, str):
 Se verifica si los ***tipos*** de datos ingresados por el señor usuario son correctos.
 ```python
 case "/":   
-            if num2 == 0: 
+        if num2 == 0: 
                 raise ValueError("Division by zero isn't allowed")
             return num1 / num2
         case _: 
@@ -53,10 +53,10 @@ Vemos si cada elemento de la lista es efectivamente un entero.
 if len(num_list) == 0:
         raise ValueError("You cannot enter an empty list.")
 
-    if not isinstance(num_list, list)   :
+if not isinstance(num_list, list)   :
         raise TypeError("You must enter a list.")
     
-    for element in num_list:
+for element in num_list:
         if not isinstance(element, (int, float)):
             raise ValueError("The elements of your list must be integers or floats.")
     
@@ -70,10 +70,10 @@ Verificamos que los tipos de datos tengan sentido, no permitimos ingresar listas
 if not isinstance(original_list, list):
         raise TypeError("You must enter a list.")
 
-    if len(original_list) == 0:
+if len(original_list) == 0:
         raise ValueError("You cannot enter an empty list.")
 
-    for element in original_list: 
+for element in original_list: 
         if not isinstance(element, str):
             raise TypeError("All the elements in your list must be strings.")
         if element == "":
@@ -88,14 +88,13 @@ Se comprueban los tipos de datos y que ningun dato sea vacío.
 if not isinstance(start_point, Point) or not isinstance(end_point, Point):
             raise TypeError("The data entered must be Points.")
         
-        if start_point == end_point:
-            raise ValueError("The points must be differents") 
-        #The points must be differente because if they're equal we do not get a line
+if start_point == end_point:
+        raise ValueError("The points must be differents") 
 ```
 Se verifica que la entrada de los datos sea correcta, no permite que dos puntos sean los mismos ya que no se forma una línea.
 ```python
 if not isinstance(start_point, Point):
-            raise TypeError("You must enter a Point")
+        raise TypeError("You must enter a Point")
 if start_point == self._end_point:
             raise ValueError("The points must be differents")
 
@@ -110,16 +109,16 @@ Hace las mismas verificaciones pero ahora en los setters.
 ### Módulo point:
 ```python
 if not isinstance(x, int) or not isinstance(y, int):
-            raise TypeError("You must enter integers.")
+        raise TypeError("You must enter integers.")
 
 if not isinstance(x, int):
-             raise TypeError("You must enter integers.")
+        raise TypeError("You must enter integers.")
 
 if not isinstance(y, int):
-             raise TypeError("You must enter integers.")
+        raise TypeError("You must enter integers.")
              
 if not isinstance(other_point, Point):
-            raise TypeError("You must enter a Point.")
+        raise TypeError("You must enter a Point.")
 ```
 Verifica las entradas de los datos en los diferentes métodos de la clase.
 
@@ -129,16 +128,16 @@ if (not isinstance(is_regular, bool) or not isinstance(vertices, list)
         or not isinstance(edges, list)) or not isinstance(inner_angles, list):
             raise TypeError("You must validate the type of data entered.")
 
-        for element in vertices:
-            if not isinstance(element, Point):
+for element in vertices:
+        if not isinstance(element, Point):
                 raise TypeError("The elements in vertices must be Points.")
     
-        for element in edges:
-            if not isinstance(element, Line):
+for element in edges:
+        if not isinstance(element, Line):
                 raise TypeError("The elements in edges must be Lines.")
 
-        for element in inner_angles:
-            if not isinstance(element, float):
+for element in inner_angles:
+        if not isinstance(element, float):
                 raise TypeError("The elements in inner_angles must be floats")
             
         if not vertices or not edges or not inner_angles:
@@ -151,15 +150,15 @@ if len(vertices) != len(inner_angles):
             raise ValueError("Number of vertices must match number of inner angles.") 
         #Any shape must have the same vertices and angles
 
-        if len(vertices) < 3:
+if len(vertices) < 3:
             raise ValueError("A shape must have at least 3 vertices.")
-        if len(edges) < 3:
+if len(edges) < 3:
             raise ValueError("A shape must have at least 3 edges.")
 
-        if len(self._edges) == 0: 
+if len(self._edges) == 0: 
             raise ValueError("The Shape doesn't have edges")
 
-        if len(self._inner_angles) == 0:
+if len(self._inner_angles) == 0:
             raise ValueError("The Shape doesn't have angles")   
 ```
 Comprueba propiedades básicas sobre cualquier polígono.
