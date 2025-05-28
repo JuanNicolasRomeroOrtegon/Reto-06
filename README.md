@@ -80,3 +80,5 @@ if not isinstance(original_list, list):
             raise ValueError("The elements in the list cannot be an empty string.")
 ```
 Se comprueban los tipos de datos y que ningun dato sea vacío.
+
+## Cambios referentes al paquete ***Shape***
