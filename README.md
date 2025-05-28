@@ -14,3 +14,4 @@ if not isinstance(election, str):
     if not isinstance(num2, (int, float)):
         raise TypeError("The number must be int or float.")
 ```
+Se verifica si los ``tipos`` de datos ingresados por el señor usuario son correctos
