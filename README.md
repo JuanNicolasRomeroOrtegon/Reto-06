@@ -15,6 +15,15 @@ if not isinstance(election, str):
         raise TypeError("The number must be int or float.")
 ```
 Se verifica si los ***tipos*** de datos ingresados por el señor usuario son correctos.
+```python
+case "/":   
+            if num2 == 0: 
+                raise ValueError("Division by zero isn't allowed")
+            return num1 / num2
+        case _: 
+            raise ValueError("No valid operation selected")
+```
+No permitimos dividir por cero, validamos que el operador seleccionado por el usuario tenga sentido en el contexto.
 
 ### 2 - Verify Palindromes:
 
@@ -54,7 +63,7 @@ if len(num_list) == 0:
     if len(num_list) < 2:
         raise ValueError("The list must contain at least two integers.")
 ```
-Verificamos que los tipos de datos tengan sentido, no permitimos ingresar listas vacías y la longitud de la lista ingresada no puede ser menor que dos pues estamos verificando sumas consecutivas.
+Verificamos que los tipos de datos tengan sentido, no permitimos ingresar listas vacías y la longitud de la lista ingresada no puede ser menor que dos, pues estamos verificando sumas consecutivas.
 
 ### 5 - Return Same Characters
 ```python
