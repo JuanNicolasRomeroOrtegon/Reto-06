@@ -18,7 +18,7 @@ def basic_operations(num1: int, num2: int, election: str) -> float:
             return num1 * num2
         case "/":   
             if num2 == 0: 
-                raise ValueError("Division by zero isn't allowed")
+                raise ZeroDivisionError("Division by zero isn't allowed")
             return num1 / num2
         case _: 
             raise ValueError("No valid operation selected")
