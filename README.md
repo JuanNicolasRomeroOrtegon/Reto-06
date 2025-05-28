@@ -1,8 +1,8 @@
 # Reto-06
 Uso de excepciones con su requerida identificación.
 
-### En los códigos del Reto-01 se implementaron los siguientes cambios
-## Basic Operations:
+## En los códigos del Reto-01 se implementaron los siguientes cambios
+### Basic Operations:
 
 ```python
 if not isinstance(election, str):
