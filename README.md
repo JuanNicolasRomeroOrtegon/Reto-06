@@ -184,3 +184,110 @@ for edge in edges:
 ```
 Comprobaciones equivalentes a las iniciales pero ahora en los respectivos setters.
 
+### Módulo rectangle:
+***Nota***: no se verifican los tipos de datos de vertices o edges puesto que rectangle hereda de shape.
+```python
+if len(edges) != 4:
+    raise ValueError("A rectangle must have 4 edges")
+
+if len(vertices) != 4:
+    raise ValueError("A rectangle must have 4 vertices")
+```
+Se verifica que el rectángulo tenga 4 vértices y 4 bordes.
+
+```python
+if not isinstance(width, (int, float)):
+    raise TypeError("You must enter a float or a integer.")
+if width <= 0:
+    raise ValueError("The width must be positive")
+
+if not isinstance(height, (int, float)):
+    raise TypeError("You must enter a float or a integer.")
+if height <= 0:
+    raise ValueError("The height must be positive")
+```
+Modificamos los setters para width y height.
+
+### Módulo cuadrado:
+***Nota***: como cuadrado hereda de rectángulo entonces no es necesario volver a verificar si el cuadrado tiene 4 bordes y 4 vértices.
+```python
+for element in edges:
+    if side  != element.get_length():
+        raise ValueError("The sides of a square must be equal.")
+```
+Se verifica que todos los lados del cuadrado sean iguales.
+```python
+if not isinstance(side, (int, float)):
+    raise TypeError("Side must be a number.")
+if side <= 0:
+    raise ValueError("The side must be positive")
+```
+Comprobamos que los datos del setters estén correctos.
+
+### Módulo triángulo: 
+
+```python
+if len(inner_angles) != 3:
+    raise ValueError("A triangle must have 3 angles")
+
+if len(vertices) != 3: 
+    raise ValueError("A triangle must have 3 vertices")
+
+if len(edges) != 3:
+    raise ValueError("A triangle must have 3 edges")
+        
+if inner_angles[0] + inner_angles[1] + inner_angles[2] != 180:
+    raise ValueError("The sum of the inner angles is not 180°")
+```
+Vemos si se tienen las características básicas que definen un triángulo: como que la suma de sus ángulos internos sea 180°.
+
+Propiedad interesante:
+```python
+if (self._side1 + self._side2 <= self._side3 or
+        self._side1 + self._side3 <= self._side2 or
+        self._side2 + self._side3 <= self._side1):
+            raise ValueError("The triangle inequality is not satisfied.")
+```
+Visualizamos si se cumple la desigualdad triangular, para saber si el triángulo está bien definido.
+
+```python
+if not isinstance(_side1, (int, float)):
+    raise TypeError("You must enter a float or a integer.")
+
+if _side1 <= 0:
+    raise ValueError("El tamaño del lado debe ser positivo")
+```
+Para todos los lados y ángulos hacemos la verificación respectiva en los setters.
+
+### Módulo equilateral:
+```python
+if (edges[0].get_length() != edges[1].get_length() or edges[0].get_length() 
+!= edges[2].get_length()):
+    raise ValueError("An equilateral triangle must have its sides " \
+    "with the same length")
+```
+Analizamos si todos los lados son iguales para saber si está bien definido el triángulo equilátero.
+
+### Módulo isósceles:
+```python
+sides = [self.get_side1(), self.get_side2(), self.get_side3()]
+unique_sides = set(sides)
+if len(unique_sides) != 2:
+    raise ValueError("An isosceles triangle must have two equal sides exactly.")
+```
+Verificamos que solamente dos de los lados sean iguales para saber si, si se está definiendo un triángulo isóceles.
+
+### Módulo scalene:
+```python
+if(edges[0].get_length() == edges[1].get_length() or edges[0].get_length() 
+== edges[2].get_length() or edges[1].get_length() == edges[2].get_length()): 
+    raise ValueError("All the sides must be different")
+```
+Miramos si los tres lados son diferentes entre sí para saber si la entrada de datos es correcta.
+
+### Módulo trirectangle:
+```python
+if inner_angles[0] != 90 and inner_angles[1] != 90 and inner_angles[2] != 90:
+    raise ValueError("At least one angle must be 90°")
+```
+Contemplamos que uno de los lados sea 90 grados para determinar que verdaderamente se está definiendo un triángulo rectángulo.
