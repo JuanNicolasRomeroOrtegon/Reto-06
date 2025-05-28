@@ -82,3 +82,106 @@ if not isinstance(original_list, list):
 Se comprueban los tipos de datos y que ningun dato sea vacío.
 
 ## Cambios referentes al paquete ***Shape***
+
+### Módulo line:
+```python
+if not isinstance(start_point, Point) or not isinstance(end_point, Point):
+            raise TypeError("The data entered must be Points.")
+        
+        if start_point == end_point:
+            raise ValueError("The points must be differents") 
+        #The points must be differente because if they're equal we do not get a line
+```
+Se verifica que la entrada de los datos sea correcta, no permite que dos puntos sean los mismos ya que no se forma una línea.
+```python
+if not isinstance(start_point, Point):
+            raise TypeError("You must enter a Point")
+if start_point == self._end_point:
+            raise ValueError("The points must be differents")
+
+if not isinstance(end_point, Point):
+            raise TypeError("You must enter a Point")
+if end_point == self._start_point:
+            raise ValueError("The points must be differents")
+```
+Hace las mismas verificaciones pero ahora en los setters.
+
+
+### Módulo point:
+```python
+if not isinstance(x, int) or not isinstance(y, int):
+            raise TypeError("You must enter integers.")
+
+if not isinstance(x, int):
+             raise TypeError("You must enter integers.")
+
+if not isinstance(y, int):
+             raise TypeError("You must enter integers.")
+             
+if not isinstance(other_point, Point):
+            raise TypeError("You must enter a Point.")
+```
+Verifica las entradas de los datos en los diferentes métodos de la clase.
+
+### Módulo shape:
+```python
+if (not isinstance(is_regular, bool) or not isinstance(vertices, list) 
+        or not isinstance(edges, list)) or not isinstance(inner_angles, list):
+            raise TypeError("You must validate the type of data entered.")
+
+        for element in vertices:
+            if not isinstance(element, Point):
+                raise TypeError("The elements in vertices must be Points.")
+    
+        for element in edges:
+            if not isinstance(element, Line):
+                raise TypeError("The elements in edges must be Lines.")
+
+        for element in inner_angles:
+            if not isinstance(element, float):
+                raise TypeError("The elements in inner_angles must be floats")
+            
+        if not vertices or not edges or not inner_angles:
+            raise ValueError("The lists of data cannot be empty")
+```
+Verifica la entrada de los datos como ya se venía haciendo.
+
+```python
+if len(vertices) != len(inner_angles):
+            raise ValueError("Number of vertices must match number of inner angles.") 
+        #Any shape must have the same vertices and angles
+
+        if len(vertices) < 3:
+            raise ValueError("A shape must have at least 3 vertices.")
+        if len(edges) < 3:
+            raise ValueError("A shape must have at least 3 edges.")
+
+        if len(self._edges) == 0: 
+            raise ValueError("The Shape doesn't have edges")
+
+        if len(self._inner_angles) == 0:
+            raise ValueError("The Shape doesn't have angles")   
+```
+Comprueba propiedades básicas sobre cualquier polígono.
+
+```python
+if not isinstance(is_regular, bool):
+        raise TypeError("is_regular must be a boolean.")
+
+if not isinstance(vertices, list):
+        raise TypeError("vertices must be a list.")
+if not vertices:
+        raise ValueError("vertices list cannot be empty.")
+for vertex in vertices:
+if not isinstance(vertex, Point):
+        raise TypeError("Each element in vertices must be a Point.")
+
+if not isinstance(edges, list):
+        raise TypeError("edges must be a list.")
+if not edges:
+        raise ValueError("edges list cannot be empty.")
+for edge in edges:
+if not isinstance(edge, Line):
+        raise TypeError("Each element in edges must be a Line.")
+```
+Comprobaciones equivalentes a las iniciales pero ahora en los respectivos setters
