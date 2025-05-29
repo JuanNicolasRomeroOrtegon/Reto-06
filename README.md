@@ -290,4 +290,4 @@ Miramos si los tres lados son diferentes entre sí para saber si la entrada de d
 if inner_angles[0] != 90 and inner_angles[1] != 90 and inner_angles[2] != 90:
     raise ValueError("At least one angle must be 90°")
 ```
-Contemplamos que uno de los lados sea 90 grados para determinar que verdaderamente se está definiendo un triángulo rectángulo.
+Contemplamos que uno de los ángulos sea 90 grados para determinar que verdaderamente se está definiendo un triángulo rectángulo.
